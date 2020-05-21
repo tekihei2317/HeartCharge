@@ -76,30 +76,21 @@ header .logo{
 }
 
 .index-wrapper .image-box{
-  width: 600px;
+  width: 720px;
   margin: 0 auto;
-
   position: relative;
 }
 
 .index-wrapper #heart{
-  width: 600px;
-  height: 560px;
+  width: 720px;
+  height: 600px;
   opacity: 0.65;
-}
 
-.index-wrapper #heart2{
-  width: 600px;
-  height: 560px;
-}
-
-.index-wrapper #heart:hover{
-  cursor: pointer;
-  filter: hue-rotate(30deg);
+  position: absolute;
 }
 
 .index-wrapper p{
-  width: 600px;
+  width: 720px;
   text-align: center;
 
   font-size: 34px;
@@ -122,8 +113,8 @@ header .logo{
   opacity: 0.85;
 
   position: absolute;
-  top: 260px;
-  left: 240px;
+  top: 250px;
+  left: 290px;
 }
 
 .index-wrapper a:hover{

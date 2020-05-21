@@ -1,0 +1,200 @@
+:root{
+  /* color */
+  --MyWhite: #ffffff;
+  --MyBlack: #220711;
+  --BoundaryWhite: #E9E9E9;
+  --BoundaryBlack: #C5C1C3;
+  --MyGray: #9B838C;
+  --WhiteGray: #F3F2F2;
+  --Primary: #EF93B6;
+  --Secondary: #EFE093;
+  --Twitter: #00ACEE;
+}
+
+a{
+  text-decoration: none;
+}
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/* common */
+
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--WhiteGray);
+}
+
+header{
+  height: 65px;
+  background-color: var(--Primary);
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+header .logo{
+  line-height: 65px;
+  margin-left: 32px;
+
+  font-size: 45px;
+  color: var(--MyWhite);
+  font-weight: bold;
+}
+
+/* container */
+
+.container{
+  padding-top: 160px;
+}
+
+/* window */
+
+.window{
+  width: 640px;
+  height: 400px;
+  margin: 0 auto;
+
+  background-color: var(--MyWhite);
+  border-radius: 10px;
+}
+
+/* heart */
+
+#heart{
+  width: 280px;
+  height: 280px;
+  background-color: var(--Primary);
+}
+
+/* home */
+
+.home-wrapper .window{
+  text-align: center;
+}
+
+.home-wrapper .instruction{
+  padding-top: 16px;
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+.home-wrapper .circle{
+  width: 280px;
+  height: 280px;
+  margin: 16px auto 0px auto;
+
+  background-color: var(--MyWhite);
+  border: 1px solid var(--Twitter);
+  border-radius: 50%;
+}
+
+.home-wrapper .start-btn{
+  line-height: 280px;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+/* play */
+
+.play-wrapper .window{
+  text-align: center;
+}
+
+.play-wrapper #timer{
+  padding-top: 24px;
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+.play-wrapper .window{
+  position: relative;
+}
+
+.play-wrapper #heart{
+  margin: 16px auto 0px auto;
+  position: absolute;
+  bottom: 32px;
+  /* window 640px heart 280px */
+  /* left should be 640/2-280/2=180px */
+  left: 180px; 
+}
+
+/* clear */
+
+.clear-wrapper .window{
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.clear-wrapper .right{
+  height: 280px;
+  margin-left: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.clear-wrapper .right .record{
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+.clear-wrapper .record #clearTime{
+  font-size: 52px;
+}
+
+.clear-wrapper .btn{
+  margin-top: 4px;
+
+  display: block;
+  background-color: var(--Twitter);
+
+  padding: 2px 0px;
+  border-radius: 8px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  opacity: 0.85;
+  box-shadow: 2px 2px var(--BoundaryBlack);
+
+  text-align: center;
+}
+
+.clear-wrapper .btn:hover{
+  opacity: 1.0;
+  cursor: pointer;
+}
+
+.clear-wrapper .buttons .tweet{
+  background-color: var(--Twitter);
+}
+
+.clear-wrapper .buttons .restart{
+  background-color: var(--MyGray);
+}
+
+.clear-wrapper .buttons .ranking{
+  background-color: var(--Primary);
+}
+
+/* countdown */
+
+.countdown-wrapper p{
+  font-size: 80px;
+  font-weight: bold;
+
+  text-align: center;
+  line-height: 360px;
+
+  color: var(--MyGray);
+}
+

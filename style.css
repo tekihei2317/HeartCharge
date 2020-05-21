@@ -32,6 +32,7 @@ header{
   top: 0px;
   left: 0px;
   right: 0px;
+  z-index: 1;
 }
 
 header .logo{
@@ -68,8 +69,68 @@ header .logo{
   background-color: var(--Primary);
 }
 
-/* home */
+/* index */
 
+.body-index{
+  background-color: var(--MyWhite);
+}
+
+.index-wrapper .image-box{
+  width: 600px;
+  margin: 0 auto;
+
+  position: relative;
+}
+
+.index-wrapper #heart{
+  width: 600px;
+  height: 560px;
+  opacity: 0.65;
+}
+
+.index-wrapper #heart2{
+  width: 600px;
+  height: 560px;
+}
+
+.index-wrapper #heart:hover{
+  cursor: pointer;
+  filter: hue-rotate(30deg);
+}
+
+.index-wrapper p{
+  width: 600px;
+  text-align: center;
+
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--MyGray);
+  color: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  top: 200px;
+}
+
+.index-wrapper a{
+  font-size: 22px;
+  font-weight: bold;
+  padding: 5px 10px;
+
+  background-color: var(--MyGray);
+  color: var(--MyWhite);
+  border-radius: 5px;
+  opacity: 0.85;
+
+  position: absolute;
+  top: 260px;
+  left: 240px;
+}
+
+.index-wrapper a:hover{
+  opacity: 1.0;
+}
+
+/* home */
 .home-wrapper .window{
   text-align: center;
 }

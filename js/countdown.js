@@ -4,20 +4,6 @@
   let timer=document.getElementById('timer');
   console.log(timer);
 
-  /*
-  let rest=3;
-  function countDown(){
-    rest--;
-    if(rest>0){
-      timer.textContent=rest;
-    }else{
-      location.href="play.html";
-    }
-  }
-  setInterval(countDown, 1000);
-  */
-
-  // 改良版(最初の一秒が遅かったので)
   let rest=3;
   function countDown(){
     rest--;
@@ -28,5 +14,6 @@
       location.href="play.html";
     }
   }
+  // 最初の一秒を調整
   setTimeout(countDown, 900);
 }

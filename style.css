@@ -251,6 +251,90 @@ header .logo{
   background-color: var(--Primary);
 }
 
+/* modal window */
+
+.clear-wrapper #modal{
+  width: 360px;
+  height: 200px;
+
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.clear-wrapper #mask{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.clear-wrapper #modal .name-form{
+}
+
+.clear-wrapper #modal p{
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+.clear-wrapper #modal input[type="text"]{
+  width: 328px;
+  height: 30px;
+  padding-left: 5px;
+
+  font-size: 18px;
+  border: 1px solid var(--BoundaryBlack);
+  border-radius: 5px;
+}
+
+.clear-wrapper #modal input[type="text"]:focus{
+  outline: none;
+  border: 1px solid var(--Twitter);
+}
+
+.clear-wrapper #modal .minibtn{
+  width: 100px;
+  padding: 5px 0px;
+
+  background-color: var(--MyGray);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.clear-wrapper #modal .minibtn:hover{
+  opacity: 1.0;
+}
+
+.clear-wrapper #modal #submit{
+  position: absolute;
+  bottom: 16px;
+}
+
+.clear-wrapper #modal #close{
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.hidden{
+  display: none;
+}
+
 /* countdown */
 
 .countdown-wrapper p{

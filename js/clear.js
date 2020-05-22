@@ -14,15 +14,85 @@
 
   clearTimeElem.textContent=`${m}:${s}.${ms}`;
 
+
   // ツイート機能
   let tweetButton=document.getElementById('tweet');
-  console.log(tweetButton);
 
-  // デプロイしたときにリンクを書き換える
+  // TODO: リンクを書き換える
   tweetButton.addEventListener("click", ()=>{
     const comment=`〜の記録は「${m}:${s}.${ms}」でした！`;
     const link="/home/tekihei/Desktop/HeartCharge";
     const parameter=comment+encodeURI('\n')+link;
     location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
+  });
+
+
+  // Firebaseの設定
+  const firebaseConfig = {
+    apiKey: "AIzaSyCM-ptIaONdCWnT0jcda1D9Bas4WUcrLrU",
+    authDomain: "heartchargeproject.firebaseapp.com",
+    databaseURL: "https://heartchargeproject.firebaseio.com",
+    projectId: "heartchargeproject",
+    storageBucket: "heartchargeproject.appspot.com",
+    messagingSenderId: "136477776839",
+    appId: "1:136477776839:web:bed1ab1664c9a6896d97e2",
+    measurementId: "G-S7SZVR8Q1R"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db=firebase.firestore();
+  const collection=db.collection('records');
+
+  /*
+  collection.add({
+  })
+  .then(doc=>{
+    console.log(`${doc.id} added!`);
+  })
+  .catch(error=>{
+    console.log(error);
+  });
+  */
+
+  // モーダルウィンドウ
+  const modal=document.getElementById('modal');
+  const mask=document.getElementById('mask');
+  const rankingBtn=document.getElementById('ranking');
+  const closeBtn=document.getElementById('close');
+  const nameArea=document.getElementById('name');
+
+  rankingBtn.addEventListener('click', ()=>{
+    modal.classList.remove('hidden');
+    mask.classList.remove('hidden');
+  });
+
+  closeBtn.addEventListener('click', ()=>{
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+  }); 
+
+  mask.addEventListener('click', ()=>{
+    closeBtn.click();
+  });
+
+
+  // 送信機能
+  const submitBtn=document.getElementById('submit');
+
+  submitBtn.addEventListener('click', ()=>{
+    const name=nameArea.value.trim();
+    if(name=="") return;
+
+    collection.add({
+      name: name, 
+      clearTime: Number(time)
+    })
+    .then(doc=>{
+      console.log(`${doc.id} added!`);
+    })
+    .catch(error=>{
+      console.log(error);
+    });
   });
 }

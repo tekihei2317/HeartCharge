@@ -85,8 +85,10 @@ header .logo{
   width: 720px;
   height: 600px;
   opacity: 0.65;
-
   position: absolute;
+
+  /* 最初は消しておく */
+  display: none;
 }
 
 .index-wrapper p{
@@ -149,6 +151,14 @@ header .logo{
   font-size: 22px;
   font-weight: bold;
   color: var(--MyGray);
+
+  animation: Flash 1.8s infinite;
+}
+
+@keyframes Flash{
+  50%{
+    opacity: 0.0;
+  }
 }
 
 /* play */
@@ -175,6 +185,9 @@ header .logo{
   /* window 640px heart 280px */
   /* left should be 640/2-280/2=180px */
   left: 180px; 
+
+  /* 最初は消しておく */
+  display: none;
 }
 
 /* clear */
@@ -248,5 +261,60 @@ header .logo{
   line-height: 360px;
 
   color: var(--MyGray);
+}
+
+/* ranking */
+.ranking-wrapper p{
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--MyGray);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ranking-wrapper table{
+  width: 400px;
+  background-color: var(--MyWhite);
+  border-collapse: collapse;
+  border: 1px solid var(--BoundaryBlack);
+
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.ranking-wrapper table th{
+  text-align: left;
+}
+
+.ranking-wrapper table tr{
+  cursor: pointer;
+}
+
+.ranking-wrapper table tr:hover{
+  background-color: #d4f0fd;
+}
+
+.ranking-wrapper table th{
+  padding: 10px 0px;
+}
+
+.ranking-wrapper table td{
+  padding: 10px 0px;
+}
+
+.ranking-wrapper table .rank{
+  padding-left: 20px;
+}
+
+.ranking-wrapper table .first{
+  background-color: rgba(239, 175, 0, 0.5);
+}
+
+.ranking-wrapper table .second{
+  background-color: rgba(159, 160, 160, 0.5);
+}
+
+.ranking-wrapper table .third{
+  background-color: rgba(192, 141, 94, 0.5);
 }
 

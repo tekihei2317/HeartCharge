@@ -2,7 +2,6 @@
 
 {
   let timer=document.getElementById('timer');
-  let counter=document.getElementById('counter');
 
   let startTime=Date.now();
   let clearTime;
@@ -20,9 +19,7 @@
   }
 
   printElapsedTime();
-
-
-  /* jボタンを押す回数 */
+  
   const needCnt=70;
   let cnt=0;
 
@@ -33,11 +30,11 @@
 
   let style=heart.style;
   style.clip=`rect(${maxHeight-curHeight}px, ${maxWidth}px, ${maxHeight}px, 0px)`;
+  style.display="inline";
 
   document.addEventListener('keyup', (event)=>{
     if(event.key==="j"){
       cnt++;
-      counter.textContent=cnt;
 
       curHeight+=maxHeight/needCnt;
       style.clip=`rect(${maxHeight-curHeight}px, ${maxWidth}px, ${maxHeight}px, 0px)`;
@@ -48,5 +45,4 @@
       location.href=`clear.html?time=${clearTime}`;
     }
   });
-
 }

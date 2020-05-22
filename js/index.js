@@ -2,9 +2,10 @@
 
 {
   let heart=document.getElementById('heart');
-  console.log(heart);
   let style=heart.style;
-  console.log(style);
+
+  /* ハートを再表示する */
+  style.display="inline";
 
   const heartHeight=600;
   const heartWidth=720;

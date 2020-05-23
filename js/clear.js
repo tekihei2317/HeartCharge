@@ -80,20 +80,42 @@
     const name=nameArea.value.trim();
     if(name=="") return;
 
-    // TODO: 条件分岐(初登録or新記録=>更新)
-    collection.add({
-      name: name, 
-      clearTime: Number(time)
-    })
-    .then(doc=>{
-      console.log(`${doc.id} added!`);
-    })
-    .catch(error=>{
-      console.log(error);
+    // 初登録or新記録=>追加/更新
+    const docRef=collection.doc(name);
+    docRef.get().then(doc=>{
+      if(!doc.exists){
+        // 存在しない場合は追加する
+        docRef.set({
+          name: name, 
+          clearTime: Number(time)
+        })
+        .then(()=>{
+          console.log("Document successfully written!");
+        });
+        comment.textContent="ランキング登録しました";
+        modalSubmit.classList.add('hidden');
+        modalAfter.classList.remove('hidden');
+      }
+      else{
+        // 新記録のとき更新する
+        if(Number(time)>=doc.data().clearTime){
+          comment.textContent="記録更新ならず...";
+          modalSubmit.classList.add('hidden');
+          modalAfter.classList.remove('hidden');
+        }
+        else{
+          docRef.set({
+            name: name, 
+            clearTime: Number(time)
+          })
+          .then(()=>{
+            console.log("Document successfully updated!");
+          });
+          comment.textContent="ランキング登録しました";
+          modalSubmit.classList.add('hidden');
+          modalAfter.classList.remove('hidden');
+        }
+      }
     });
-
-    comment.textContent="ランキング登録しました";
-    modalSubmit.classList.add('hidden');
-    modalAfter.classList.remove('hidden');
   });
 }

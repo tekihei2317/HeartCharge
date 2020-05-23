@@ -28,7 +28,8 @@
     const comment=`クリアタイムは「${m}:${s}.${ms}」でした！`;
     const link="https://heartchargeproject.web.app";
     const parameter=hashTag+encodeURI('\n')+comment+encodeURI('\n')+link;
-    location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
+    window.open(`https://twitter.com/intent/tweet?text=${parameter}`);
+    // location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
   });
 
   // Firebaseの設定(どこに書くべき...?)

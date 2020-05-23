@@ -18,10 +18,9 @@
   // ツイート機能
   let tweetButton=document.getElementById('tweet');
 
-  // TODO: リンクを書き換える
   tweetButton.addEventListener("click", ()=>{
-    const comment=`〜の記録は「${m}:${s}.${ms}」でした！`;
-    const link="/home/tekihei/Desktop/HeartCharge";
+    const comment=`クリアタイムは「${m}:${s}.${ms}」でした！`;
+    const link="https://heartchargeproject.web.app/";
     const parameter=comment+encodeURI('\n')+link;
     location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
   });
@@ -51,6 +50,8 @@
   const nameArea=document.getElementById('name');
 
   registerBtn.addEventListener('click', ()=>{
+    // focusできない
+    nameArea.focus();
     modalSubmit.classList.remove('hidden');
     mask.classList.remove('hidden');
   });
@@ -75,7 +76,14 @@
   });
 
   // 送信機能
+  const form=document.querySelector('form');
   const submitBtn=document.getElementById('submit');
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    submitBtn.click();
+  });
+
   submitBtn.addEventListener('click', ()=>{
     const name=nameArea.value.trim();
     if(name=="") return;
@@ -118,4 +126,5 @@
       }
     });
   });
+
 }

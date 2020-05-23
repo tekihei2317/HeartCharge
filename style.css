@@ -244,11 +244,11 @@ header .logo{
 }
 
 .clear-wrapper .buttons .restart{
-  background-color: var(--MyGray);
+  background-color: var(--Primary);
 }
 
 .clear-wrapper .buttons .ranking{
-  background-color: var(--Primary);
+  background-color: var(--MyGray);
 }
 
 /* modal window */
@@ -261,6 +261,7 @@ header .logo{
   top: 300px;
   left: 0px;
   right: 0px;
+  z-index: 3;
   margin: 0px auto;
 
   padding: 16px;
@@ -274,6 +275,7 @@ header .logo{
   left: 0px;
   right: 0px;
   bottom: 0px;
+  z-index: 2;
 
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -363,15 +365,13 @@ header .logo{
   border: 1px solid var(--BoundaryBlack);
 
   margin: 0 auto;
-  font-size: 20px;
-}
-
-.ranking-wrapper table th{
-  text-align: left;
+  font-size: 18px;
+  text-align: center;
 }
 
 .ranking-wrapper table tr{
   cursor: pointer;
+  border: 1px solid var(--BoundaryBlack);
 }
 
 .ranking-wrapper table tr:hover{
@@ -387,18 +387,13 @@ header .logo{
 }
 
 .ranking-wrapper table .rank{
-  padding-left: 20px;
+  width: 80px;
 }
 
-.ranking-wrapper table .first{
-  background-color: rgba(239, 175, 0, 0.5);
+.ranking-wrapper table .name{
+  width: 160px;
 }
 
-.ranking-wrapper table .second{
-  background-color: rgba(159, 160, 160, 0.5);
+.ranking-wrapper table .time{
+  width: 160px;
 }
-
-.ranking-wrapper table .third{
-  background-color: rgba(192, 141, 94, 0.5);
-}
-

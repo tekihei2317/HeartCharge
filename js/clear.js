@@ -26,8 +26,7 @@
     location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
   });
 
-
-  // Firebaseの設定
+  // Firebaseの設定(どこに書くべき...?)
   const firebaseConfig = {
     apiKey: "AIzaSyCM-ptIaONdCWnT0jcda1D9Bas4WUcrLrU",
     authDomain: "heartchargeproject.firebaseapp.com",
@@ -43,17 +42,6 @@
 
   const db=firebase.firestore();
   const collection=db.collection('records');
-
-  /*
-  collection.add({
-  })
-  .then(doc=>{
-    console.log(`${doc.id} added!`);
-  })
-  .catch(error=>{
-    console.log(error);
-  });
-  */
 
   // モーダルウィンドウ
   const modal=document.getElementById('modal');
@@ -84,6 +72,7 @@
     const name=nameArea.value.trim();
     if(name=="") return;
 
+    // TODO: 条件分岐(初登録or新記録=>更新)
     collection.add({
       name: name, 
       clearTime: Number(time)

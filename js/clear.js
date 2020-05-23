@@ -5,8 +5,10 @@
   let clearTimeElem=document.getElementById('clearTime');
 
   let time=sessionStorage['time'];
+  console.log(time);
   if(time==null){
     location.href="index.html";
+    /* リロードしたときの表示がおかしくなるので0にしておく */
     time=0;
   }
   sessionStorage.removeItem('time');
@@ -95,7 +97,7 @@
 
   submitBtn.addEventListener('click', ()=>{
     const name=nameArea.value.trim();
-    if(name=="") return;
+    if(name=="" || name.length>12) return;
 
     sessionStorage['name']=name;
 

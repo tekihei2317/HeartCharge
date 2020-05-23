@@ -19,7 +19,6 @@
   const collection=db.collection('records');
 
   const table=document.querySelector('table');
-  console.log(table);
   
   function timeFormat(time)
   {
@@ -27,15 +26,12 @@
     const m=new String(d.getMinutes()).padStart(2, '0');
     const s=new String(d.getSeconds()).padStart(2, '0');
     const ms=new String(d.getMilliseconds()).padStart(3, '0');
-    console.log(m+":"+s+"."+ms);
     return m+":"+s+"."+ms;
   };
 
   let curRank=0;
   collection.orderBy("clearTime").get().then(snapshot=>{
     snapshot.forEach(doc=>{
-      console.log(`${doc.id} ${doc.data().name} ${doc.data().clearTime}`);
-
       let row=document.createElement('tr');
       let rank=document.createElement('td');
       let name=document.createElement('td');

@@ -24,9 +24,10 @@
   let tweetButton=document.getElementById('tweet');
 
   tweetButton.addEventListener("click", ()=>{
+    const hashTag=encodeURIComponent('#')+"HeartCharge";
     const comment=`クリアタイムは「${m}:${s}.${ms}」でした！`;
-    const link="https://heartchargeproject.web.app/";
-    const parameter=comment+encodeURI('\n')+link;
+    const link="https://heartchargeproject.web.app";
+    const parameter=hashTag+encodeURI('\n')+comment+encodeURI('\n')+link;
     location.href=`https://twitter.com/intent/tweet?text=${parameter}`;
   });
 

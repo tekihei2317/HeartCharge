@@ -92,18 +92,13 @@
         .then(()=>{
           console.log("Document successfully written!");
         });
-        comment.textContent="ランキング登録しました";
+        comment.textContent="ランキング登録しました！";
         modalSubmit.classList.add('hidden');
         modalAfter.classList.remove('hidden');
       }
       else{
         // 新記録のとき更新する
-        if(Number(time)>=doc.data().clearTime){
-          comment.textContent="記録更新ならず...";
-          modalSubmit.classList.add('hidden');
-          modalAfter.classList.remove('hidden');
-        }
-        else{
+        if(Number(time)<doc.data().clearTime){
           docRef.set({
             name: name, 
             clearTime: Number(time)
@@ -111,7 +106,12 @@
           .then(()=>{
             console.log("Document successfully updated!");
           });
-          comment.textContent="ランキング登録しました";
+          comment.textContent="ランキング登録しました！";
+          modalSubmit.classList.add('hidden');
+          modalAfter.classList.remove('hidden');
+        }
+        else{
+          comment.textContent="記録更新ならず...";
           modalSubmit.classList.add('hidden');
           modalAfter.classList.remove('hidden');
         }

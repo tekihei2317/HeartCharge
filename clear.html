@@ -27,7 +27,7 @@
             <div class="buttons">
               <div class="btn tweet" id="tweet">ツイートする</div>
               <a class="btn restart" href="home.html">再挑戦</a>
-              <div class="btn ranking" id="ranking">ランキング登録</div>
+              <div class="btn register" id="register">ランキング登録</div>
             </div>
           </div>
 
@@ -37,7 +37,8 @@
       <div id="mask" class="">
       </div>
 
-      <form autocomplete="off" spellcheck="false" id="modal" class="">
+      <!-- 送信前 -->
+      <form autocomplete="off" spellcheck="false" id="modalSubmit" class="modal hidden">
         <div class="name-form">
           <p>名前</p>
           <input type="text" id="name">
@@ -45,6 +46,13 @@
         <div id="submit" class="minibtn">登録</div>
         <div id="close" class="minibtn">閉じる</div>
       </form>
+
+      <!--送信後-->
+      <div id="modalAfter" class="modal">
+        <p id="comment"></p>
+        <a id="ranking" class="minibtn" href="ranking.html">ランキングを見る</a>
+        <div id="close2" class="minibtn">閉じる</div>
+      </div>
 
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>

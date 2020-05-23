@@ -43,20 +43,20 @@
   const db=firebase.firestore();
   const collection=db.collection('records');
 
-  // モーダルウィンドウ
-  const modal=document.getElementById('modal');
+  // モーダルウィンドウ(送信)
   const mask=document.getElementById('mask');
-  const rankingBtn=document.getElementById('ranking');
+  const modalSubmit=document.getElementById('modalSubmit');
+  const registerBtn=document.getElementById('register');
   const closeBtn=document.getElementById('close');
   const nameArea=document.getElementById('name');
 
-  rankingBtn.addEventListener('click', ()=>{
-    modal.classList.remove('hidden');
+  registerBtn.addEventListener('click', ()=>{
+    modalSubmit.classList.remove('hidden');
     mask.classList.remove('hidden');
   });
 
   closeBtn.addEventListener('click', ()=>{
-    modal.classList.add('hidden');
+    modalSubmit.classList.add('hidden');
     mask.classList.add('hidden');
   }); 
 
@@ -64,10 +64,18 @@
     closeBtn.click();
   });
 
+  // モーダルウィンドウ(送信後)
+  const modalAfter=document.getElementById('modalAfter');
+  const comment=document.getElementById('comment');
+  const close2=document.getElementById('close2');
+
+  close2.addEventListener('click', ()=>{
+    modalAfter.classList.add('hidden');
+    mask.classList.add('hidden');
+  });
 
   // 送信機能
   const submitBtn=document.getElementById('submit');
-
   submitBtn.addEventListener('click', ()=>{
     const name=nameArea.value.trim();
     if(name=="") return;
@@ -83,5 +91,9 @@
     .catch(error=>{
       console.log(error);
     });
+
+    comment.textContent="ランキング登録しました";
+    modalSubmit.classList.add('hidden');
+    modalAfter.classList.remove('hidden');
   });
 }

@@ -247,13 +247,24 @@ header .logo{
   background-color: var(--Primary);
 }
 
-.clear-wrapper .buttons .ranking{
+.clear-wrapper .buttons .register{
   background-color: var(--MyGray);
 }
 
-/* modal window */
+/* modal window(共通) */
 
-.clear-wrapper #modal{
+.clear-wrapper #mask{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.clear-wrapper .modal{
   width: 360px;
   height: 200px;
 
@@ -269,44 +280,10 @@ header .logo{
   border-radius: 10px;
 }
 
-.clear-wrapper #mask{
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 2;
-
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.clear-wrapper #modal .name-form{
-}
-
-.clear-wrapper #modal p{
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--MyGray);
-}
-
-.clear-wrapper #modal input[type="text"]{
-  width: 328px;
-  height: 30px;
-  padding-left: 5px;
-
-  font-size: 18px;
-  border: 1px solid var(--BoundaryBlack);
-  border-radius: 5px;
-}
-
-.clear-wrapper #modal input[type="text"]:focus{
-  outline: none;
-  border: 1px solid var(--Twitter);
-}
-
-.clear-wrapper #modal .minibtn{
-  width: 100px;
-  padding: 5px 0px;
+.clear-wrapper .modal .minibtn{
+  display: block; /* for <a></a> */
+  min-width: 100px;
+  padding: 5px 5px;
 
   background-color: var(--MyGray);
   color: white;
@@ -318,23 +295,65 @@ header .logo{
   opacity: 0.85;
 }
 
-.clear-wrapper #modal .minibtn:hover{
+.clear-wrapper .modal .minibtn:hover{
   opacity: 1.0;
 }
 
-.clear-wrapper #modal #submit{
+.hidden{
+  display: none;
+}
+
+/* modal window(submit) */
+
+.clear-wrapper #modalSubmit p{
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+
+.clear-wrapper #modalSubmit input[type="text"]{
+  width: 328px;
+  height: 30px;
+  padding-left: 5px;
+
+  font-size: 18px;
+  border: 1px solid var(--BoundaryBlack);
+  border-radius: 5px;
+}
+
+.clear-wrapper #modalSubmit input[type="text"]:focus{
+  outline: none;
+  border: 1px solid var(--Twitter);
+}
+
+
+.clear-wrapper #modalSubmit #submit{
   position: absolute;
   bottom: 16px;
 }
 
-.clear-wrapper #modal #close{
+.clear-wrapper #modalSubmit #close{
   position: absolute;
   bottom: 16px;
   right: 16px;
 }
 
-.hidden{
-  display: none;
+/* modal window(after submit) */
+
+.clear-wrapper #modalAfter #comment{
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--MyGray);
+}
+.clear-wrapper #modalAfter #ranking{
+  position: absolute;
+  bottom: 16px;
+}
+
+.clear-wrapper #modalAfter #close2{
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
 }
 
 /* countdown */
@@ -350,6 +369,7 @@ header .logo{
 }
 
 /* ranking */
+
 .ranking-wrapper p{
   font-size: 34px;
   font-weight: bold;

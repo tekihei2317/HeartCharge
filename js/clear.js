@@ -4,8 +4,12 @@
   // クリアタイムを表示
   let clearTimeElem=document.getElementById('clearTime');
 
-  const parameter=location.search.substring(1);
-  const time=parameter.split('=')[1];
+  let time=sessionStorage['time'];
+  if(time==null){
+    location.href="index.html";
+    time=0;
+  }
+  sessionStorage.removeItem('time');
 
   let d=new Date(Number(time));
   const m=new String(d.getMinutes()).padStart(2,'0');
@@ -13,7 +17,6 @@
   const ms=new String(d.getMilliseconds()).padStart(3,'0');
 
   clearTimeElem.textContent=`${m}:${s}.${ms}`;
-
 
   // ツイート機能
   let tweetButton=document.getElementById('tweet');
@@ -53,6 +56,9 @@
     modalSubmit.classList.remove('hidden');
     mask.classList.remove('hidden');
     nameArea.focus();
+    if(sessionStorage['name']!=null){
+      nameArea.value=sessionStorage['name'];
+    }
   });
 
   closeBtn.addEventListener('click', ()=>{
@@ -90,6 +96,8 @@
   submitBtn.addEventListener('click', ()=>{
     const name=nameArea.value.trim();
     if(name=="") return;
+
+    sessionStorage['name']=name;
 
     // 初登録or新記録=>追加/更新
     const docRef=collection.doc(name);

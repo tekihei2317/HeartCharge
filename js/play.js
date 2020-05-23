@@ -42,7 +42,8 @@
 
     if(cnt===needCnt){
       clearTime=Date.now()-startTime;
-      location.href=`clear.html?time=${clearTime}`;
+      sessionStorage['time']=clearTime;
+      location.href=`clear.html`;
     }
   });
 }

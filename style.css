@@ -33,6 +33,9 @@ header{
   left: 0px;
   right: 0px;
   z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 header .logo{
@@ -42,6 +45,21 @@ header .logo{
   font-size: 45px;
   color: var(--MyWhite);
   font-weight: bold;
+}
+
+header .right a{
+  display: inline-block;
+  line-height: 65px;
+  padding: 0px 10px;
+  
+  background-color: rgba(0, 0, 0, 0.05);
+  color: white;
+  font-weight: bold;
+}
+
+header .right a:hover{
+  background-color: white;
+  color: var(--Primary);
 }
 
 /* container */

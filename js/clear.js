@@ -50,10 +50,9 @@
   const nameArea=document.getElementById('name');
 
   registerBtn.addEventListener('click', ()=>{
-    // focusできない
-    nameArea.focus();
     modalSubmit.classList.remove('hidden');
     mask.classList.remove('hidden');
+    nameArea.focus();
   });
 
   closeBtn.addEventListener('click', ()=>{
@@ -68,11 +67,15 @@
   // モーダルウィンドウ(送信後)
   const modalAfter=document.getElementById('modalAfter');
   const comment=document.getElementById('comment');
-  const close2=document.getElementById('close2');
+  const closeBtn2=document.getElementById('close2');
 
-  close2.addEventListener('click', ()=>{
+  closeBtn2.addEventListener('click', ()=>{
     modalAfter.classList.add('hidden');
     mask.classList.add('hidden');
+  });
+
+  mask.addEventListener('click', ()=>{
+    closeBtn2.click();
   });
 
   // 送信機能

@@ -5,6 +5,7 @@
 
   let startTime=Date.now();
   let clearTime;
+  let timeoutId;
 
   function printElapsedTime(){
     const d=new Date(Date.now()-startTime);
@@ -13,9 +14,9 @@
     const ms=new String(d.getMilliseconds()).padStart(3, '0');
     timer.textContent=`${m}:${s}:${ms}`;
 
-    setTimeout(()=>{
+    timeoutId=setTimeout(()=>{
       printElapsedTime();
-    }, 50);
+    }, 10);
   }
 
   printElapsedTime();
@@ -42,6 +43,7 @@
 
     if(cnt===needCnt){
       clearTime=Date.now()-startTime;
+      clearTimeout(timeoutId);
       sessionStorage['time']=clearTime;
       location.href=`clear.html`;
     }
